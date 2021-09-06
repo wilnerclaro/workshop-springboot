@@ -9,8 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "tb_user")
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -23,8 +28,9 @@ public class User implements Serializable{
 	private String phone;
 	private String password;
 	
-	
-	//private List<Order> orders = new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy = "client")
+	private List<Order> orders = new ArrayList<>();
 	
 	public User() {
 	}
@@ -78,13 +84,11 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	/*public List<Order> getOrders() {
+	public List<Order> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}*/
+	
 
 	@Override
 	public int hashCode() {
