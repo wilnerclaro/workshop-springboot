@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cursojavanelio.course.entities.Category;
-import com.cursojavanelio.course.entities.Order;
-import com.cursojavanelio.course.entities.User;
 import com.cursojavanelio.course.repositories.CategoryRepository;
-import com.cursojavanelio.course.repositories.OrderRepository;
 
 @Service
 public class CategoryService {
